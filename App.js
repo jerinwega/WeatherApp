@@ -1,22 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
 import "@/global.css";
-import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
-import { StyleSheet, Text, View } from 'react-native';
+import { GluestackUIProvider } from "@/src/components/ui/gluestack-ui-provider";
+import Weather from './src/screens/Weather';
 
 export default function App() {
   return (
-    <GluestackUIProvider mode="light"><View style={styles.container}>
-        <Text>Hello World</Text>
-        <StatusBar style="auto" />
-      </View></GluestackUIProvider>
+    <Provider store={store}>
+      <GluestackUIProvider mode="light">
+      <Weather />
+      </GluestackUIProvider>
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
