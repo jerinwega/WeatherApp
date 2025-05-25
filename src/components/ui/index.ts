@@ -6,5 +6,4 @@ export * from './hstack';
 export * from './box';
 export * from './icon';
 export * from './button';
-export * from './pressable';
-export * from './fab';
+export * from './alert'

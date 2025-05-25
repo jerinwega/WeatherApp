@@ -1,11 +1,17 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+
+const { height: deviceHeight } = Dimensions.get('window');
+const { width: deviceWidth } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    background: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: deviceHeight,
+    width: deviceWidth,
+    zIndex: -1, // ensures it's behind everything
   },
 });
 

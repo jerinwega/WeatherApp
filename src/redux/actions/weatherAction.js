@@ -25,10 +25,10 @@ export const fetchWeatherByCity = (cityName) => async (dispatch) => {
   try {
     dispatch(fetchWeatherPending());
     const data = await getWeatherData(cityName);
-
-    // console.log("data", data);
     dispatch(fetchWeatherCompleted(data));
+    return data;
   } catch (error) {
     dispatch(fetchWeatherFailed(error.message));
   }
 };
+  

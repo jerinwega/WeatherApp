@@ -20,7 +20,7 @@ export default function App() {
     setColorMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  const bgColor = colorMode === 'light' ? '#E5E5E5' : '#262626';
+  const bgColor = colorMode === 'light' ? '#FFFFFF' : '#262626';
 
   return (
     <>
@@ -32,11 +32,9 @@ export default function App() {
       <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
         <Provider store={store}>
           <GluestackUIProvider mode={colorMode}>
-            <SafeAreaView style={{ flex: 1, backgroundColor: bgColor }}>
               <NavigationContainer>
                 <AppNavigation />
               </NavigationContainer>
-            </SafeAreaView>
           </GluestackUIProvider>
         </Provider>
       </ThemeContext.Provider>
