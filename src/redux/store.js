@@ -4,7 +4,7 @@ import logger from 'redux-logger';
 
 const store = configureStore({
   reducer: {
-    weather: weatherReducer,
+    weather: weatherReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(logger),

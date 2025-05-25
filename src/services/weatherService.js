@@ -1,12 +1,10 @@
 import axios from 'axios';
+import Constants from 'expo-constants';
 
-const API_KEY = process.env.OPENWEATHER_API_KEY;
-const WeatherModel = {
-  
-}
+const API_KEY = Constants.expoConfig.extra.OPENWEATHER_API_KEY;
 
-export const fetchWeatherByCity = async (cityName) => {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
+export const getWeatherData = async (cityName) => {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
 
   const { data } = await axios.get(url);
 
@@ -17,3 +15,4 @@ export const fetchWeatherByCity = async (cityName) => {
     icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
   };
 };
+

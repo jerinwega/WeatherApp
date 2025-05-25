@@ -4,13 +4,7 @@ import {
   FETCH_WEATHER_FAILED,
 } from './actionTypes';
 
-
-import { fetchWeatherByCity as getWeatherData } from '../../services/weatherService';
-
-
-
-const apiKey = process.env.OPENWEATHER_API_KEY;
-
+import { getWeatherData } from '../../services/weatherService';
 
 export const fetchWeatherPending = () => ({
   type: FETCH_WEATHER_PENDING,
@@ -27,15 +21,14 @@ export const fetchWeatherCompleted = (data) => ({
 });
 
 
-
 export const fetchWeatherByCity = (cityName) => async (dispatch) => {
   try {
     dispatch(fetchWeatherPending());
-    const weather = await getWeatherData(cityName);
-    dispatch(fetchWeatherCompleted(weather));
+    const data = await getWeatherData(cityName);
+
+    // console.log("data", data);
+    dispatch(fetchWeatherCompleted(data));
   } catch (error) {
     dispatch(fetchWeatherFailed(error.message));
   }
 };
-
-

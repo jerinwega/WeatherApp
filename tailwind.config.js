@@ -6,7 +6,7 @@ module.exports = {
   content: [
     "index.{tsx,jsx,ts,js}",
     "App.{tsx,jsx,ts,js}",
-    "components/**/*.{tsx,jsx,ts,js}"
+    "src/**/*.{tsx,jsx,ts,js}"
   ],
   presets: [require('nativewind/preset')],
   safelist: [
