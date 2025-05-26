@@ -150,8 +150,10 @@ return (
     onChangeText={handleSearchDebounce}
     placeholder='Search city'
     placeholderTextColor="black"
-    className='pl-6 h-full flex-1 text-base font-semibold text-black'
-    style={{ textAlignVertical: 'center' }}
+   className="flex-1 text-base font-semibold text-black px-6"
+  style={{
+    lineHeight: 16
+  }}
   />
   <TouchableOpacity
   onPress={handleToggleSearch}
