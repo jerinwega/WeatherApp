@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "DARK_MODE=media expo start --android",
     "ios": "DARK_MODE=media expo start --ios",
-    "web": "DARK_MODE=media expo start --web"
+    "web": "DARK_MODE=media expo start --web",
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@expo/html-elements": "^0.4.2",
@@ -31,6 +32,7 @@
     "expo-linear-gradient": "~14.1.4",
     "expo-status-bar": "~2.2.3",
     "expo-system-ui": "~5.0.7",
+    "jest-expo": "~53.0.5",
     "lodash": "^4.17.21",
     "lucide-react-native": "^0.511.0",
     "nativewind": "^4.1.23",
@@ -51,8 +53,54 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^13.2.0",
     "@types/react": "~19.0.10",
+    "babel-jest": "^29.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
     "jscodeshift": "^0.15.2"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?@?react-native",
+      "|@react-navigation",
+      "|expo(nent)?|@expo(nent)?/.*",
+      "|@unimodules/.*|unimodules",
+      "|@gluestack-ui/.*",
+      "|react-redux",
+      ")"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy",
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "setupFilesAfterEnv": [
+      "./jest.setup.js",
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/*.d.ts",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.config.js",
+      "!**/metro.config.js",
+      "!**/tailwind.config.js",
+      "!**/expo-env.d.ts",
+      "!**/.expo/**"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "private": true
 }

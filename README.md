@@ -1,6 +1,7 @@
 npm i
+install expo go on testing device
 npx expo start
+scan qr
 
 
-
-npx gluestack-ui add [component]
+npm test

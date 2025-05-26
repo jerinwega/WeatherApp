@@ -5,7 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import store from './src/redux/store';
 import { GluestackUIProvider } from '@/src/components/ui/gluestack-ui-provider';
 import AppNavigation from './src/navigation/AppNavigation';
-import '@/global.css'; // Assuming Tailwind/nativewind is configured
+import '@/global.css'; 
+import { DARK_THEME, WHITE_COLOR } from './src/utils/constants';
 
 // Theme context
 export const ThemeContext = createContext({
@@ -20,7 +21,7 @@ export default function App() {
     setColorMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  const bgColor = colorMode === 'light' ? '#FFFFFF' : '#262626';
+  const bgColor = colorMode === 'light' ? WHITE_COLOR : DARK_THEME;
 
   return (
     <>
