@@ -82,7 +82,11 @@ return (
 
 {/* searchbar section */}
 <View className='m-5 z-50 shadow-xl' style={{ height: '7%' }}>
-  <View className='flex-row justify-end items-center rounded-full' style={{ backgroundColor: showSearch ? 'transparent' : WHITE_COLOR }}>
+  <View className='flex-row justify-end items-center rounded-full' 
+  style={[
+    styles.searchContainer,
+    showSearch ? styles.searchContainerHidden : styles.searchContainerVisible,
+  ]}>
   {showSearch ? null : 
   (
     <TextInput

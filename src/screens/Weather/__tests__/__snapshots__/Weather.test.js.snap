@@ -39,9 +39,15 @@ exports[`Weather Screen renders correctly and matches snapshot 1`] = `
     <View
       className="flex-row justify-end items-center rounded-full"
       style={
-        {
-          "backgroundColor": "#FFFFFF",
-        }
+        [
+          {
+            "borderRadius": 9999,
+            "overflow": "hidden",
+          },
+          {
+            "backgroundColor": "#FFFFFF",
+          },
+        ]
       }
     >
       <TextInput
