@@ -5,7 +5,8 @@ exports[`Header Component matches snapshot in light mode 1`] = `
   className="flex-row gap-3 justify-between items-center px-2 py-3"
 >
   <Text
-    className="font-body text-2xl italic text-blue-600 font-black"
+    className="font-body text-2xl italic flex-1 text-blue-600 font-black"
+    numberOfLines={1}
   >
     NET WORLD SPORTS
   </Text>

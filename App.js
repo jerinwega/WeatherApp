@@ -1,5 +1,6 @@
 import React, { useState, createContext } from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import store from './src/redux/store';
@@ -24,21 +25,23 @@ export default function App() {
   const bgColor = colorMode === 'light' ? WHITE_COLOR : DARK_THEME;
 
   return (
-    <>
-      {/* Top Safe Area + Status Bar */}
-      <SafeAreaView style={{ backgroundColor: bgColor }} />
-      <StatusBar barStyle={colorMode === 'light' ? 'dark-content' : 'light-content'} />
+     <SafeAreaProvider>
+      <SafeAreaView style={{ flex: 1, backgroundColor: bgColor }} edges={['top', 'left', 'right']}>
+        <StatusBar
+          backgroundColor={bgColor}
+          barStyle={colorMode === 'light' ? 'dark-content' : 'light-content'}
+        />
 
-      {/* Theme + Gluestack + Redux Providers */}
-      <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
-        <Provider store={store}>
-          <GluestackUIProvider mode={colorMode}>
+        <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
+          <Provider store={store}>
+            <GluestackUIProvider mode={colorMode}>
               <NavigationContainer>
                 <AppNavigation />
               </NavigationContainer>
-          </GluestackUIProvider>
-        </Provider>
-      </ThemeContext.Provider>
-    </>
+            </GluestackUIProvider>
+          </Provider>
+        </ThemeContext.Provider>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }

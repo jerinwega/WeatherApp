@@ -11,7 +11,7 @@ const Header = () => {
       <HStack
         className="justify-between items-center px-2 py-3" space="md"
       >
-        <Text size="2xl" italic className="text-blue-600 font-black">
+        <Text numberOfLines={1} size="2xl" italic className="flex-1 text-blue-600 font-black">
           NET WORLD SPORTS
         </Text>
 

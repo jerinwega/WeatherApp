@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Weather Screen renders correctly and matches snapshot 1`] = `
+<View
+  className="flex-1 relative"
+>
+  <View
+    colors={
+      [
+        "#ffffff",
+        "#0000ff",
+      ]
+    }
+    end={false}
+    start={false}
+    style={
+      {
+        "height": 1334,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+        "zIndex": -1,
+      }
+    }
+  />
+  <View
+    className="z-50 p-3"
+  />
+  <View
+    className="m-5 z-50 shadow-xl"
+    style={
+      {
+        "height": "7%",
+      }
+    }
+  >
+    <View
+      className="flex-row justify-end items-center rounded-full"
+      style={
+        {
+          "backgroundColor": "#FFFFFF",
+        }
+      }
+    >
+      <TextInput
+        className="flex-1 text-base font-semibold text-black px-6"
+        onChangeText={[MockFunction]}
+        placeholder="Search city"
+        placeholderTextColor="black"
+        style={
+          {
+            "lineHeight": 16,
+          }
+        }
+      />
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "backgroundColor": "#2563eb",
+            "opacity": 1,
+          }
+        }
+      />
+    </View>
+  </View>
+  <View
+    className="flex justify-center flex-1"
+  >
+    <Text
+      className="font-body font-bold text-3xl text-center text-black"
+    >
+      London
+      ,
+      <Text
+        className="font-body font-bold text-xl text-center text-black"
+      >
+         
+        UK
+      </Text>
+    </Text>
+    <View
+      className="flex-row flex justify-center"
+    />
+    <View
+      className="space-y-2"
+    >
+      <Text
+        className="font-body font-bold text-6xl text-center ml-5 text-black"
+      >
+        22
+        °
+      </Text>
+      <Text
+        className="font-body font-bold text-xl text-center text-black"
+      >
+        Partly Cloudy
+      </Text>
+    </View>
+  </View>
+</View>
+`;

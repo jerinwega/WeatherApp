@@ -1,7 +1,7 @@
 setup
 --------
 npm i
-install expo go on testing device
+install expo go on testing device (IOS/Android)
 npx expo start
 scan QR from terminal
 
