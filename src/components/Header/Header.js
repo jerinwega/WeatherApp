@@ -12,7 +12,7 @@ const Header = () => {
         className="justify-between items-center px-2 py-3" space="md"
       >
         <Text numberOfLines={1} size="2xl" italic className="flex-1 text-blue-600 font-black">
-          NET WORLD SPORTS
+          NET WORLD SPORTS &raquo;
         </Text>
 
         <Button

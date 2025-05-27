@@ -1,16 +1,22 @@
-setup
+Setup
 --------
-npm i
+`npm i`
+
 install expo go on testing device (IOS/Android)
-npx expo start
+
+`npx expo start`
+
 scan QR from terminal
 
-to see test coverage
+Test coverage
 --------------------
-npm test 
+`npm test`
 
 
 
+
+Architectural decisions
+_________________________
 
 1. Modular Architecture
 The application follows a modular architecture by separating concerns across different directories (/redux, /navigation, /components, etc.), making the codebase scalable and maintainable.

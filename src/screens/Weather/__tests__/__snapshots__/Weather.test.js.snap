@@ -99,37 +99,47 @@ exports[`Weather Screen renders correctly and matches snapshot 1`] = `
     </View>
   </View>
   <View
-    className="flex justify-center flex-1"
+    className="items-center justify-center flex-1 bg-transparent"
   >
-    <Text
-      className="font-body font-bold text-3xl text-center text-black"
-    >
-      London
-      ,
-      <Text
-        className="font-body font-bold text-xl text-center text-black"
-      >
-         
-        UK
-      </Text>
-    </Text>
     <View
-      className="flex-row flex justify-center"
-    />
-    <View
-      className="space-y-2"
+      className="rounded-3xl py-6"
+      style={
+        {
+          "backgroundColor": "rgba(255,255,255, 0.15)",
+          "width": 525,
+        }
+      }
     >
       <Text
-        className="font-body font-bold text-6xl text-center ml-5 text-black"
+        className="font-body font-bold text-3xl text-center text-black"
       >
-        22
-        °
+        London
+        ,
+        <Text
+          className="font-body font-bold text-xl text-center text-black"
+        >
+           
+          UK
+        </Text>
       </Text>
-      <Text
-        className="font-body font-bold text-xl text-center text-black"
+      <View
+        className="flex-row justify-center"
+      />
+      <View
+        className="space-y-2"
       >
-        Partly Cloudy
-      </Text>
+        <Text
+          className="font-body font-bold text-6xl text-center ml-5 text-black"
+        >
+          22
+          °C
+        </Text>
+        <Text
+          className="font-body font-bold text-xl mt-4 text-center text-black"
+        >
+          Partly Cloudy
+        </Text>
+      </View>
     </View>
   </View>
 </View>

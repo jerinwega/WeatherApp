@@ -42,13 +42,22 @@ if (!isFetching && error) {
 foreCastFrag = (
 <>
 {/* forecast section */}
-<View className='flex justify-center flex-1'>
+
+
+
+<View className='items-center justify-center flex-1 bg-transparent'>
+
+<View className='rounded-3xl py-6'
+  style={{ backgroundColor: `rgba(255,255,255, 0.15)`, width: width * 0.70 }} >
+
+    
+
     <Text className={`text-center ${colorMode === 'dark' ? 'text-white': 'text-black'}`} size='3xl' bold>{get(weather, 'city')}, 
       <Text className={`text-center ${colorMode === 'dark' ? 'text-white': 'text-black'}`} size='xl' bold>
         &nbsp;{get(weather, 'country')}
       </Text>
       </Text>
-  <View className='flex-row flex justify-center'>
+  <View className='flex-row justify-center'>
     <CachedImage
         style={{ width: imageSize, height: imageSize }}
         source={{
@@ -58,9 +67,10 @@ foreCastFrag = (
       />              
     </View>
     <View className='space-y-2'>
-          <Text className={`text-center ml-5 ${colorMode === 'dark' ? 'text-white': 'text-black'}`} size='6xl' bold>{get(weather, 'temperature')}&#176;</Text>
-          <Text className={`text-center ${colorMode === 'dark' ? 'text-white' : 'text-black'}`} size='xl' bold>{get(weather, 'condition')}</Text>
+          <Text className={`text-center ml-5 ${colorMode === 'dark' ? 'text-white': 'text-black'}`} size='6xl' bold>{get(weather, 'temperature')}&#176;C</Text>
+          <Text className={` mt-4 text-center ${colorMode === 'dark' ? 'text-white' : 'text-black'}`} size='xl' bold>{get(weather, 'condition')}</Text>
     </View>
+      </View>
   </View> 
   </>
 );
