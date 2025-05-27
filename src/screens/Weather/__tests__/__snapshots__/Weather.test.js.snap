@@ -126,16 +126,29 @@ exports[`Weather Screen renders correctly and matches snapshot 1`] = `
         className="flex-row justify-center"
       />
       <View
-        className="space-y-2"
+        className="flex-row justify-center items-start"
       >
         <Text
           className="font-body font-bold text-6xl text-center ml-5 text-black"
         >
           22
-          °C
         </Text>
         <Text
-          className="font-body font-bold text-xl mt-4 text-center text-black"
+          className="font-body font-bold text-3xl text-black"
+          style={
+            {
+              "lineHeight": 28,
+            }
+          }
+        >
+          °C
+        </Text>
+      </View>
+      <View
+        className="flex-row justify-center"
+      >
+        <Text
+          className="font-body font-bold text-xl text-center text-black"
         >
           Partly Cloudy
         </Text>

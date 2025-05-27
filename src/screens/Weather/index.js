@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, View, TextInput, Keyboard } from 'react-native';
+import { TouchableOpacity, View, TextInput } from 'react-native';
 import styles from './Weather.styles';
 import { Text } from "@/src/components/ui"
 import { Image as CachedImage } from 'expo-image';
@@ -15,6 +15,7 @@ import WeatherHandler from './Weather.handler';
 const Weather = () => {
 
 const { width } = Dimensions.get('window');
+
 const imageSize = width * 0.55; // 55% of screen width
 
 // Get all required state and handlers from the custom hook
@@ -68,9 +69,18 @@ foreCastFrag = (
       />              
     </View>
     {/* Temperature and Condition */}
-    <View className='space-y-2'>
-          <Text className={`text-center ml-5 ${colorMode === 'dark' ? 'text-white': 'text-black'}`} size='6xl' bold>{get(weather, 'temperature')}&#176;C</Text>
-          <Text className={` mt-4 text-center ${colorMode === 'dark' ? 'text-white' : 'text-black'}`} size='xl' bold>{get(weather, 'condition')}</Text>
+    <View className='flex-row justify-center items-start'>
+          <Text
+              className={`text-center ml-5 ${colorMode === 'dark' ? 'text-white' : 'text-black'}`}
+              size='6xl'
+              bold
+            >
+              {get(weather, 'temperature')}
+            </Text>
+            <Text className={`${colorMode === 'dark' ? 'text-white' : 'text-black'} `} bold size='3xl' style={{ lineHeight: 28 }}>°C</Text>
+      </View>
+      <View className='flex-row justify-center'>
+          <Text className={`text-center ${colorMode === 'dark' ? 'text-white' : 'text-black'}`} size='xl' bold>{get(weather, 'condition')}</Text>
     </View>
       </View>
   </View> 
