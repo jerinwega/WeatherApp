@@ -17,6 +17,7 @@ const Weather = () => {
 const { width } = Dimensions.get('window');
 const imageSize = width * 0.55; // 55% of screen width
 
+// Get all required state and handlers from the custom hook
 const {
     colorMode,
     loading,
@@ -32,31 +33,31 @@ const {
 
 let foreCastFrag = null;
 
+// Show error message if weather fetch failed
 if (!isFetching && error) {
   foreCastFrag = (
   <View className='flex-1 flex-row justify-center items-center'>
     <Text size='xl' bold className='text-red-800 bg-red-200 px-6 py-4 rounded-3xl'>{error}</Text>
   </View> 
   );
-} else if (canShowWeather && get(weather, 'city')) {
+} 
+// Show weather card if data is available
+else if (canShowWeather && get(weather, 'city')) {
 foreCastFrag = (
 <>
 {/* forecast section */}
-
-
 
 <View className='items-center justify-center flex-1 bg-transparent'>
 
 <View className='rounded-3xl py-6'
   style={{ backgroundColor: `rgba(255,255,255, 0.15)`, width: width * 0.70 }} >
-
-    
-
+    {/* City and Country */}
     <Text className={`text-center ${colorMode === 'dark' ? 'text-white': 'text-black'}`} size='3xl' bold>{get(weather, 'city')}, 
       <Text className={`text-center ${colorMode === 'dark' ? 'text-white': 'text-black'}`} size='xl' bold>
         &nbsp;{get(weather, 'country')}
       </Text>
       </Text>
+    {/* Weather Icon */}
   <View className='flex-row justify-center'>
     <CachedImage
         style={{ width: imageSize, height: imageSize }}
@@ -66,6 +67,7 @@ foreCastFrag = (
         contentFit="contain"
       />              
     </View>
+    {/* Temperature and Condition */}
     <View className='space-y-2'>
           <Text className={`text-center ml-5 ${colorMode === 'dark' ? 'text-white': 'text-black'}`} size='6xl' bold>{get(weather, 'temperature')}&#176;C</Text>
           <Text className={` mt-4 text-center ${colorMode === 'dark' ? 'text-white' : 'text-black'}`} size='xl' bold>{get(weather, 'condition')}</Text>
@@ -79,18 +81,20 @@ foreCastFrag = (
 return (
   <>
   <View className='flex-1 relative'>
+  {/* Background gradient */}
     <LinearGradient
       colors={gradientColors}
       style={styles.background}
       start={colorMode === 'dark' && {x: 0, y: 0}}
       end={colorMode === 'dark' && {x: 0, y: 12}}
     />
-
+  {/* Header */}
     <View className='z-50 p-3'>
       <Header />
     </View>
 
 {/* searchbar section */}
+
 <View className='m-5 z-50 shadow-xl' style={{ height: '7%' }}>
   <View className='flex-row justify-end items-center rounded-full' 
   style={[
@@ -120,7 +124,7 @@ return (
   </TouchableOpacity>
   </View>
 </View>
-
+{/* Loader or Weather forecast */}
   {loading ? (
     <View className='flex-1 flex-row justify-center items-center'>
     <Progress.CircleSnail thickness={10} size={140} color={colorMode=== 'dark' ? LIGHT_THEME : DARK_THEME} />

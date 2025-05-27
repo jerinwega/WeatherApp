@@ -18,6 +18,7 @@ const WeatherHandler = () => {
   const [showSearch, toggleSearch] = useState(false);
   const [canShowWeather, setCanShowWeather] = useState(true);
 
+  // Fetch previously saved city on first load
   useEffect(() => {
     fetchInitialWeatherByCity();
   }, []);
@@ -29,6 +30,7 @@ const WeatherHandler = () => {
     }
   };
 
+  // Handles search input and fetches weather data
   const handleSearch = async (value) => {
     setLoading(true);
     setCanShowWeather(false);
@@ -37,9 +39,10 @@ const WeatherHandler = () => {
       try {
         const result = await dispatch(fetchWeatherByCity(value));
 
+        // Save final search city if found
         if (get(result, 'city')) {
           storeData('city', get(result, 'city'));
-          setLoading(true); // NOTE: maybe should be false?
+          setLoading(true); 
         } else {
           setLoading(false);
         }
@@ -50,16 +53,19 @@ const WeatherHandler = () => {
     }
   };
 
+  // Toggle search input visibility
   const handleToggleSearch = () => {
     setLoading(false);
     Keyboard.dismiss();
     toggleSearch(!showSearch);
 
+  // show weather card if a city is already loaded
     if (get(weather, 'city')) {
       setCanShowWeather(true);
     }
   };
 
+  // Debounced search handler to limit API calls while typing
   const handleSearchDebounce = useCallback(debounce(handleSearch, 200), []);
 
   const gradientColors =
